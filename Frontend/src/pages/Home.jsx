@@ -42,16 +42,14 @@ const Home = () => {
     setTimeout(() => setShowToast(false), 1000);
   };
 
-  // Início do arrasto (toque ou clique)
   const handleTouchStart = (e) => {
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     setTouchStart(x);
     if (mainRef.current) {
-      mainRef.current.classList.add('no-select'); // Desabilita a seleção
+      mainRef.current.classList.add('no-select');
     }
   };
 
-  // Durante o arrasto
   const handleTouchMove = (e) => {
     if (!touchStart) return;
     
@@ -65,11 +63,10 @@ const Home = () => {
     }
   };
 
-  // Fim do arrasto
   const handleTouchEnd = () => {
     setTouchStart(null);
     if (mainRef.current) {
-      mainRef.current.classList.remove('no-select'); // Reabilita a seleção
+      mainRef.current.classList.remove('no-select');
     }
   };
 
@@ -98,7 +95,6 @@ const Home = () => {
 
   return (
     <div className="relative min-h-screen bg-[#1C1E26] text-white overflow-hidden">
-      {/* Estilo embutido para a classe no-select */}
       <style>
         {`
           .no-select {
@@ -110,7 +106,6 @@ const Home = () => {
         `}
       </style>
 
-      {/* Overlay when sidebar is open */}
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
@@ -123,7 +118,6 @@ const Home = () => {
         )}
       </AnimatePresence>
 
-      {/* Toast Notification */}
       <AnimatePresence>
         {showToast && (
           <motion.div
@@ -137,7 +131,6 @@ const Home = () => {
         )}
       </AnimatePresence>
 
-      {/* Sidebar */}
       <motion.div
         initial={{ x: '-100%' }}
         animate={{ x: isSidebarOpen ? 0 : '-100%' }}
@@ -168,7 +161,6 @@ const Home = () => {
         </div>
       </motion.div>
 
-      {/* Main Container */}
       <div 
         ref={mainRef}
         onTouchStart={handleTouchStart}
@@ -176,7 +168,6 @@ const Home = () => {
         onTouchEnd={handleTouchEnd}
         className="mx-auto w-full sm:max-w-[400px] min-h-[100dvh] flex flex-col bg-[#1C1E26] border-x border-gray-700/50"
       >
-        {/* Header */}
         <div className="sticky top-0 flex items-center justify-between p-3 border-b border-gray-700/50 bg-[#1C1E26] z-20">
           <div className="flex items-center gap-3">
             <button 
@@ -201,7 +192,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Main Content */}
         <div className="flex-1 p-4 flex items-center justify-center">
           <div className="text-center space-y-3">
             <div className="grid grid-cols-4 gap-2 justify-items-center">
@@ -217,7 +207,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Bottom Navigation */}
         <div className="sticky bottom-0 w-full bg-[#1C1E26] border-t border-gray-700/50 py-3 px-6">
           <div className="flex items-center justify-between">
             <button onClick={handleNavClick} className="text-[#ff2d00]">

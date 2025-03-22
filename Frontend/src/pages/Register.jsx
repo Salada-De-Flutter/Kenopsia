@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { FaCamera } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import registerUser from '../utils/registerUser'; // Ajuste o caminho conforme sua estrutura
+import registerUser from '../utils/registerUser';
 
 const Register = () => {
   const [profileImage, setProfileImage] = useState(null);
-  const [file, setFile] = useState(null); // Arquivo bruto para envio
+  const [file, setFile] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const fileInputRef = useRef(null);
@@ -15,30 +15,27 @@ const Register = () => {
     const selectedFile = event.target.files[0];
     if (selectedFile) {
       const imageUrl = URL.createObjectURL(selectedFile);
-      setProfileImage(imageUrl); // Define a prévia da imagem localmente
-      setFile(selectedFile); // Armazena o arquivo para envio
+      setProfileImage(imageUrl);
+      setFile(selectedFile);
     }
   };
 
   const handleCameraClick = () => {
-    fileInputRef.current.click(); // Simula o clique no input de arquivo
+    fileInputRef.current.click();
   };
 
   const handleContinue = async () => {
     try {
-        const result = await registerUser(username, password, file);
-        console.log('Dados enviados com sucesso:', result);
-
-        // Verifica o sucesso e redireciona
-        if (result.status === 'success' && result.uuid) {
-            navigate('/home');
-        } else {
-            throw new Error('UUID não retornado pelo backend');
-        }
+      const result = await registerUser(username, password, file);
+      if (result.status === 'success' && result.uuid) {
+        navigate('/home');
+      } else {
+        throw new Error('UUID não retornado pelo backend');
+      }
     } catch (error) {
-        console.error('Erro ao registrar usuário:', error.message);
+      console.error('Erro ao registrar usuário:', error.message);
     }
-};
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] flex flex-col items-center justify-between p-4 sm:p-6">
@@ -128,7 +125,10 @@ const Register = () => {
           <a href="#" className="text-[#FF6347]">Política de Privacidade</a>
           {' da Kenopsia'}
         </p>
-        <button className="w-full bg-transparent text-white py-3 sm:py-4 hover:bg-white/5 transition-colors rounded-lg text-sm sm:text-base">
+        <button 
+          onClick={() => navigate('/')}
+          className="w-full bg-transparent text-white py-3 sm:py-4 hover:bg-white/5 transition-colors rounded-lg text-sm sm:text-base"
+        >
           Fazer login
         </button>
       </div>
