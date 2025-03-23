@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState, createContext } from 'react';
+import { useMediaQuery } from 'react-responsive'; // Importando a biblioteca
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
@@ -23,6 +24,9 @@ function App() {
     manufacturer: 'Unknown',
   });
 
+  // Verifica se está em um dispositivo móvel (max-width: 768px)
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   useEffect(() => {
     // Check if DeviceInfo is available from WebView
     if ((window as any).DeviceInfo) {
@@ -34,9 +38,14 @@ function App() {
     }
   }, []);
 
+  // Estilos ajustados para responsividade com Tailwind
+  const appStyles = isMobile
+    ? 'flex flex-col min-h-screen w-full bg-[#1C1E26] text-white overflow-x-hidden p-4' // Mobile
+    : 'flex flex-col min-h-screen w-full max-w-4xl mx-auto bg-[#1C1E26] text-white overflow-x-hidden p-6'; // Desktop
+
   return (
     <DeviceContext.Provider value={deviceInfo}>
-      <div className="flex flex-col min-h-screen w-full bg-[#1C1E26] text-white overflow-hidden">
+      <div className={appStyles}>
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
