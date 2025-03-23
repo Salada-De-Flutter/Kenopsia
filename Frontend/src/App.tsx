@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect, useState, createContext } from 'react';
+import { useState, createContext } from 'react';
 import { useMediaQuery } from 'react-responsive'; // Importando a biblioteca
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -27,16 +27,7 @@ function App() {
   // Verifica se está em um dispositivo móvel (max-width: 768px)
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  useEffect(() => {
-    // Check if DeviceInfo is available from WebView
-    if ((window as any).DeviceInfo) {
-      setDeviceInfo({
-        model: (window as any).DeviceInfo.getDeviceModel() || 'Unknown',
-        osVersion: (window as any).DeviceInfo.getOSVersion() || 'Unknown',
-        manufacturer: (window as any).DeviceInfo.getManufacturer() || 'Unknown',
-      });
-    }
-  }, []);
+
 
   // Estilos ajustados para responsividade com Tailwind
   const appStyles = isMobile
