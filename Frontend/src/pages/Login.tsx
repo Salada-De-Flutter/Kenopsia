@@ -47,7 +47,7 @@ const Login = () => {
 
         {/* Rodapé */}
         <p className="mt-6 text-xs italic animate-fade-in text-gray-400 text-center">
-          Desenvolvido por Flutter
+          Desenvolvido por Flutter (Eu vou ficar louco cara)
         </p>
       </div>
     </div>
