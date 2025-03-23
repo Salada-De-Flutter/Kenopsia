@@ -6,8 +6,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="absolute inset-0 flex flex-col bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] overflow-hidden">
-      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 min-h-0">
+    <div className="h-full w-full flex flex-col bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A]">
+      <main className="flex-1 flex flex-col items-center justify-center p-4">
         {/* Logo e Título */}
         <div className="relative group cursor-pointer mb-2 sm:mb-4">
           <FaCode className="text-[#FF6347] text-4xl sm:text-5xl md:text-7xl transform group-hover:rotate-180 transition-transform duration-500" />
@@ -37,10 +37,10 @@ const Login = () => {
         >
           Criar conta
         </button>
-      </div>
+      </main>
 
       {/* Rodapé */}
-      <div className="p-4 sm:p-6 text-gray-400 text-center w-full">
+      <footer className="p-4 sm:p-6 text-gray-400 text-center w-full">
         <div className="w-full max-w-md mx-auto">
           <button 
             onClick={() => navigate('/login-form')}
@@ -52,7 +52,7 @@ const Login = () => {
         <p className="mt-4 sm:mt-6 text-xs sm:text-sm md:text-base italic animate-fade-in">
           Desenvolvido por Flutter
         </p>
-      </div>
+      </footer>
     </div>
   );
 };
