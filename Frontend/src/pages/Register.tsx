@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { FaCamera } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import registerUser from '../utils/registerUser';
+import { registerUser } from '../scripts/auth';
 
 const Register = () => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
