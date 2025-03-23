@@ -6,8 +6,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative h-full w-full flex flex-col bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A]">
-      <main className="flex-1 flex flex-col items-center justify-center p-4">
+    <div className="h-screen w-full flex flex-col bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A]">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
         {/* Logo e Título */}
         <div className="relative group cursor-pointer mb-2 sm:mb-4">
           <FaCode className="text-[#FF6347] text-4xl sm:text-5xl md:text-7xl transform group-hover:rotate-180 transition-transform duration-500" />
@@ -33,14 +33,14 @@ const Login = () => {
         {/* Botão Criar Conta */}
         <button 
           onClick={() => navigate('/register')}
-          className="bg-gradient-to-r from-[#FF6347] to-[#FF8367] text-white px-4 sm:px-6 md:px-12 py-2 sm:py-3 rounded-lg text-sm sm:text-base md:text-lg font-medium hover:bg-[#FF6347] transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-xs"
+          className="bg-gradient-to-r from-[#FF6347] to-[#FF8367] text-white px-4 sm:px-6 md:px-12 py-2 sm:py-3 rounded-lg text-sm sm:text-base md:text-lg font-medium hover:bg-[#FF6347] transition-all duration-300 shadow-lg hover:shadow-xl w-full max-w-xs"
         >
           Criar conta
         </button>
       </main>
 
       {/* Rodapé */}
-      <footer className="p-4 w-full">
+      <footer className="w-full px-4 pb-4">
         <div className="w-full max-w-xs mx-auto">
           <button 
             onClick={() => navigate('/login-form')}
