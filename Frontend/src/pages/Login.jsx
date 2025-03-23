@@ -19,7 +19,7 @@ const Login = () => {
         </h1>
         
         <p className="text-white tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.3em] mb-6 sm:mb-8 text-xs sm:text-sm md:text-base animate-slide-in">
-          R E M E M B E R   T H E   P A S T
+          R E M E M B E R - T H E - P A S T
         </p>
         
         {/* Description */}
