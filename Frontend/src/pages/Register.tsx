@@ -4,15 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import registerUser from '../utils/registerUser';
 
 const Register = () => {
-  const [profileImage, setProfileImage] = useState(null);
-  const [file, setFile] = useState(null);
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+  const [file, setFile] = useState<File | null>(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
-  const handleImageChange = (event) => {
-    const selectedFile = event.target.files[0];
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
     if (selectedFile) {
       const imageUrl = URL.createObjectURL(selectedFile);
       setProfileImage(imageUrl);
@@ -21,7 +21,7 @@ const Register = () => {
   };
 
   const handleCameraClick = () => {
-    fileInputRef.current.click();
+    fileInputRef.current?.click();
   };
 
   const handleContinue = async () => {
@@ -33,12 +33,12 @@ const Register = () => {
         throw new Error('UUID não retornado pelo backend');
       }
     } catch (error) {
-      console.error('Erro ao registrar usuário:', error.message);
+      console.error('Erro ao registrar usuário:', error);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] flex flex-col items-center justify-between p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] flex flex-col items-center justify-between p-4 sm:p-6 safe-area-padding">
       <div className="w-full max-w-md flex-1 flex flex-col items-center justify-center">
         <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-center">
           BEM-VINDO à Kenopsia!
@@ -111,7 +111,7 @@ const Register = () => {
 
         <button
           onClick={handleContinue}
-          className="w-full bg-white/10 text-gray-400 backdrop-blur-sm py-3 sm:py-4 rounded-lg text-base sm:text-lg font-medium hover:bg-[#FF6347] hover:text-white transition-colors duration-300 mb-6 sm:mb-8"
+          className="w-full bg-white/10 text-gray-400 backdrop-blur-sm py-3 sm:py-4 rounded-lg text-base sm:text-lg font-medium hover:bg-[#FF6347] hover:text-white transition-colors duration-300 mb-6 sm:mb-8 active:transform active:scale-95"
         >
           CONTINUAR
         </button>
@@ -127,7 +127,7 @@ const Register = () => {
         </p>
         <button 
           onClick={() => navigate('/')}
-          className="w-full bg-transparent text-white py-3 sm:py-4 hover:bg-white/5 transition-colors rounded-lg text-sm sm:text-base"
+          className="w-full bg-transparent text-white py-3 sm:py-4 hover:bg-white/5 transition-colors rounded-lg text-sm sm:text-base active:transform active:scale-95"
         >
           Fazer login
         </button>

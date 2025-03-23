@@ -1,13 +1,11 @@
 import { FaCode } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
-import { useDeviceInfo } from '../App'; // todas as páginas precisam dessa linha
 
 const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] p-4">
+    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] p-4 safe-area-padding">
       <div className="flex flex-col items-center justify-center w-full max-w-md md:max-w-lg lg:max-w-xl">
         {/* Logo e Título */}
         <div className="relative group cursor-pointer mb-4 md:mb-6">
@@ -34,7 +32,7 @@ const Login = () => {
         {/* Botão Criar Conta */}
         <button
           onClick={() => navigate('/register')}
-          className="bg-gradient-to-r from-[#FF6347] to-[#FF8367] text-white px-6 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-base lg:text-lg font-medium hover:bg-[#FF6347] transition-all duration-300 shadow-lg hover:shadow-xl w-full mb-4"
+          className="bg-gradient-to-r from-[#FF6347] to-[#FF8367] text-white px-6 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-base lg:text-lg font-medium hover:bg-[#FF6347] transition-all duration-300 shadow-lg hover:shadow-xl w-full mb-4 active:transform active:scale-95"
         >
           Criar conta
         </button>
@@ -42,7 +40,7 @@ const Login = () => {
         {/* Botão Fazer Login */}
         <button
           onClick={() => navigate('/login-form')}
-          className="bg-gray-600 text-white px-6 py-2 md:px-8 md:py-3 w-full hover:bg-gray-500 transition-colors duration-300 rounded-lg text-sm md:text-base lg:text-lg backdrop-blur-sm"
+          className="bg-gray-600 text-white px-6 py-2 md:px-8 md:py-3 w-full hover:bg-gray-500 transition-colors duration-300 rounded-lg text-sm md:text-base lg:text-lg backdrop-blur-sm active:transform active:scale-95"
         >
           Fazer login
         </button>

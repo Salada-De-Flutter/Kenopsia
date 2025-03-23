@@ -1,87 +1,147 @@
-# Kenopsia App
+# Kenopsia - WebView App
 
-Uma recriação e homenagem ao Omlet Arcade, desenvolvida com React e Vite.
+Uma recriação e homenagem ao Omlet Arcade, otimizada para WebView Android.
 
-## 📁 Estrutura do Projeto
-
-```
-src/
-├── assets/         # Arquivos estáticos (imagens, fontes, etc)
-├── components/     # Componentes reutilizáveis
-├── config/        # Configurações do projeto
-├── hooks/         # Custom hooks React
-├── layouts/       # Layouts reutilizáveis
-├── pages/         # Páginas da aplicação
-├── services/      # Serviços e integrações
-├── styles/        # Estilos globais e utilitários
-└── utils/         # Funções utilitárias
-```
-
-## 🚀 Comandos Disponíveis
-
-- `npm install`: Instala as dependências do projeto
-- `npm run dev`: Inicia o servidor de desenvolvimento
-- `npm run build`: Gera a build de produção
-- `npm run preview`: Visualiza a build localmente
-- `npm run lint`: Executa o linter no código
-- `npm run clean`: Limpa a pasta de build
-
-## 📚 Documentação das Pastas
-
-### assets/
-Contém arquivos estáticos como imagens, ícones e fontes utilizados no projeto.
-
-### components/
-Componentes React reutilizáveis em toda a aplicação. Cada componente possui seu próprio arquivo de estilo e testes.
-
-### config/
-Arquivos de configuração do projeto, incluindo constantes, variáveis de ambiente e configurações de terceiros.
-
-### hooks/
-Custom hooks React para lógica reutilizável entre componentes.
-
-### layouts/
-Layouts compartilhados entre diferentes páginas, como cabeçalhos, rodapés e estruturas de navegação.
-
-### pages/
-Páginas principais da aplicação:
-- `Login.jsx`: Página inicial com autenticação
-- `Register.jsx`: Cadastro de novos usuários
-- `Home.jsx`: Dashboard principal com feed de conteúdo
-
-### services/
-Serviços para integração com APIs e lógica de negócios.
-
-### styles/
-Estilos globais, temas e utilitários CSS/Tailwind.
-
-### utils/
-Funções utilitárias e helpers reutilizáveis.
-
-## 🔧 Tecnologias Utilizadas
+## 🚀 Tecnologias
 
 - React 18
+- TypeScript
 - Vite
 - Tailwind CSS
 - Framer Motion
 - React Router DOM
 - Lucide React
-- React Icons
 
-## 📦 Deploy
+## 📱 Otimizações para WebView
 
-O projeto está configurado para deploy na Vercel. O processo de deploy é automático a partir do repositório Git.
+- Viewport configurado para dispositivos móveis modernos
+- Suporte a safe-area para notch e bordas arredondadas
+- Gestos otimizados para touch
+- Prevenção de zoom indesejado
+- Animações suaves e otimizadas
+- Feedback tátil responsivo
 
-Para fazer deploy manual:
+## 📂 Estrutura do Projeto
 
-1. Instale a CLI da Vercel: `npm i -g vercel`
-2. Execute: `vercel`
-3. Siga as instruções do CLI
+```
+src/
+├── pages/          # Páginas da aplicação
+│   ├── Login.tsx   # Página inicial de login
+│   ├── Register.tsx # Página de registro
+│   └── Home.tsx    # Página principal
+├── styles/         # Estilos globais
+│   ├── global.css  # Configurações CSS globais
+│   └── animations.css # Animações personalizadas
+└── utils/          # Utilitários
+    └── registerUser.ts # Lógica de registro
+```
 
-## 🤝 Contribuição
+## 🔐 Páginas
 
-1. Faça o fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+### Login (`/login`)
+- Tela inicial com opções de login e registro
+- Animações suaves de entrada
+- Design responsivo e adaptativo
+
+### Registro (`/register`)
+- Formulário de cadastro com upload de foto
+- Validação de campos
+- Feedback visual para interações
+- Termos de uso e política de privacidade
+
+### Home (`/home`)
+- Menu lateral deslizante com gestos
+- Barra de navegação inferior
+- Barra de pesquisa superior
+- Notificações e toasts
+- Área de conteúdo principal
+
+## 🛠 Configurações WebView Recomendadas
+
+```kotlin
+webView.settings.apply {
+    javaScriptEnabled = true
+    domStorageEnabled = true
+    useWideViewPort = true
+    loadWithOverviewMode = true
+    setGeolocationEnabled(false)
+    mediaPlaybackRequiresUserGesture = false
+}
+
+webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+```
+
+## 🔧 Instalação e Uso
+
+1. Clone o repositório
+```bash
+git clone [url-do-repositorio]
+```
+
+2. Instale as dependências
+```bash
+npm install
+```
+
+3. Execute o projeto
+```bash
+npm run dev
+```
+
+4. Build para produção
+```bash
+npm run build
+```
+
+## 📱 Características Responsivas
+
+- Layout adaptativo para diferentes tamanhos de tela
+- Suporte a gestos de deslize
+- Feedback visual para interações
+- Animações otimizadas para performance
+- Prevenção de comportamentos indesejados (zoom, seleção de texto)
+
+## ⚡ Performance
+
+- Lazy loading de componentes
+- Otimização de imagens
+- Animações via GPU
+- Gestão eficiente de estado
+- Prevenção de re-renders desnecessários
+
+## 🔒 Segurança
+
+- Validação de inputs
+- Sanitização de dados
+- Proteção contra ataques XSS
+- Gestão segura de tokens
+
+## 🎨 Temas e Cores
+
+- Esquema de cores escuro para melhor visibilidade
+- Cores primárias:
+  - Background: #1C1E26
+  - Accent: #FF6347
+  - Text: #FFFFFF
+  - Secondary: #FF8367
+
+## 📦 Dependências Principais
+
+```json
+{
+  "dependencies": {
+    "framer-motion": "^11.0.8",
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-router-dom": "^6.22.3"
+  }
+}
+```
+
+## 🔍 Próximos Passos
+
+- [ ] Implementar autenticação completa
+- [ ] Adicionar testes automatizados
+- [ ] Implementar cache offline
+- [ ] Adicionar suporte a notificações push
+- [ ] Implementar modo offline

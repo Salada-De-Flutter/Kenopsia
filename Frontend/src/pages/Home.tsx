@@ -22,8 +22,8 @@ import {
 const Home = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
-  const mainRef = useRef(null);
-  const [touchStart, setTouchStart] = useState(null);
+  const mainRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const sidebarItems = [
     { icon: ClipboardList, text: 'Estatísticas da Livestream' },
@@ -42,18 +42,18 @@ const Home = () => {
     setTimeout(() => setShowToast(false), 1000);
   };
 
-  const handleTouchStart = (e) => {
-    const x = e.touches ? e.touches[0].clientX : e.clientX;
+  const handleTouchStart = (e: TouchEvent | MouseEvent) => {
+    const x = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
     setTouchStart(x);
     if (mainRef.current) {
       mainRef.current.classList.add('no-select');
     }
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: TouchEvent | MouseEvent) => {
     if (!touchStart) return;
     
-    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    const x = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
     const diff = x - touchStart;
 
     if (diff > 50 && !isSidebarOpen) {
@@ -163,9 +163,6 @@ const Home = () => {
 
       <div 
         ref={mainRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
         className="mx-auto w-full sm:max-w-[400px] min-h-[100dvh] flex flex-col bg-[#1C1E26] border-x border-gray-700/50"
       >
         <div className="sticky top-0 flex items-center justify-between p-3 border-b border-gray-700/50 bg-[#1C1E26] z-20">
