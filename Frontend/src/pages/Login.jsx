@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { FaCode } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,8 +6,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed inset-0 flex flex-col bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A]">
-      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
+    <div className="absolute inset-0 flex flex-col bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] overflow-hidden">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 min-h-0">
         {/* Logo e Título */}
         <div className="relative group cursor-pointer mb-2 sm:mb-4">
           <FaCode className="text-[#FF6347] text-4xl sm:text-5xl md:text-7xl transform group-hover:rotate-180 transition-transform duration-500" />
