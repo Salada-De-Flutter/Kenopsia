@@ -1,3 +1,4 @@
+
 import { FaCode } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
@@ -5,8 +6,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] flex flex-col items-center justify-between py-4 px-4 sm:py-8 sm:px-6 md:py-16 md:px-8">
-      <div className="flex-1 flex flex-col items-center justify-center w-full">
+    <div className="fixed inset-0 flex flex-col bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A]">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
         {/* Logo e Título */}
         <div className="relative group cursor-pointer mb-2 sm:mb-4">
           <FaCode className="text-[#FF6347] text-4xl sm:text-5xl md:text-7xl transform group-hover:rotate-180 transition-transform duration-500" />
@@ -39,8 +40,8 @@ const Login = () => {
       </div>
 
       {/* Rodapé */}
-      <div className="text-gray-400 text-center w-full">
-        <div className="w-full mx-auto">
+      <div className="p-4 sm:p-6 text-gray-400 text-center w-full">
+        <div className="w-full max-w-md mx-auto">
           <button 
             onClick={() => navigate('/login-form')}
             className="bg-gray-600 text-white py-2 sm:py-3 px-4 sm:px-6 w-full hover:bg-gray-500 transition-colors duration-300 rounded-lg text-sm sm:text-base md:text-base backdrop-blur-sm"
