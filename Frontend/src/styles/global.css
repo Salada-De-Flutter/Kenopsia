@@ -20,6 +20,8 @@ html {
   width: 100%;
   overflow-x: hidden;
   font-size: 16px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Forçar layout de celular em todos os dispositivos */
@@ -30,9 +32,9 @@ body {
   height: 100%;
   width: 100%;
   max-width: 480px; /* Largura máxima de celular */
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
+  margin: 0 auto;
+  position: relative;
+  background-color: #1C1E26;
 }
 
 #root {
@@ -41,6 +43,8 @@ body {
   max-width: 480px; /* Reforça a largura máxima */
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  position: relative;
 }
 
 /* Safe Area Padding for Modern Devices */
