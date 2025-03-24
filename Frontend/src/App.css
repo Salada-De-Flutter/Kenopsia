@@ -54,7 +54,12 @@
   -webkit-touch-callout: none;
 }
 
+/* src/index.css ou src/App.css */
 .container {
-  width: 100%; /* ao invés de um valor fixo */
+  min-width: 320px;
+  min-height: 480px;
+  width: 100%; /* Permite que ele se expanda conforme a tela */
+  margin: 0 auto; /* Centraliza se a tela for maior */
   padding: 16px;
+  box-sizing: border-box;
 }
