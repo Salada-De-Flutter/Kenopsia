@@ -17,7 +17,7 @@ var db *sql.DB
 func init() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Println("Nenhum arquivo .env encontrado, usando variáveis de ambiente do sistema")
+		log.Println("Nenhum arquivo salada .env encontrado, usando variáveis de ambiente do sistema")
 	}
 
 	connStr := fmt.Sprintf(
