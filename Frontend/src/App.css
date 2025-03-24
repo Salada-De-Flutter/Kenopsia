@@ -53,3 +53,8 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
+
+.container {
+  width: 100%; /* ao invés de um valor fixo */
+  padding: 16px;
+}
