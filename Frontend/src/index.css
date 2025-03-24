@@ -10,10 +10,11 @@
   /* src/index.css */
 
 .responsive-container {
-    width: 50%;
+    width: 100%;
     min-width: 320px; /* largura mínima para não quebrar */
     max-width: 768px; /* opcional: limite máximo para telas grandes */
     margin: 0 auto; /* centraliza */
+    padding: 8px;
     box-sizing: border-box;
   }
   
