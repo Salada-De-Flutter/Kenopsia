@@ -6,3 +6,28 @@
     width: 100%; /* ao invés de um valor fixo */
     padding: 16px;
   }
+
+  /* src/index.css */
+
+.responsive-container {
+    width: 100%;
+    min-width: 320px; /* largura mínima para não quebrar */
+    max-width: 1200px; /* opcional: limite máximo para telas grandes */
+    margin: 0 auto; /* centraliza */
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Adicione media queries para ajustes em telas menores */
+  @media (max-width: 768px) {
+    .responsive-container {
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .responsive-container {
+      padding: 4px;
+    }
+  }
+  
