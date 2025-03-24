@@ -1,71 +1,218 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Code } from 'lucide-react';
+import { useMediaQuery } from 'react-responsive';
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Grid,
+  useTheme,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
 
 /**
- * Página de Login
+ * Tema personalizado do Material-UI
+ */
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#FF6347',
+      light: '#FF8367',
+      dark: '#E5573E',
+    },
+    background: {
+      default: '#1C1E26',
+      paper: '#2D2F3A',
+    },
+    text: {
+      primary: '#FFFFFF',
+      secondary: 'rgba(255, 255, 255, 0.7)',
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+  },
+});
+
+/**
+ * Página de Login Responsiva
  * 
- * Componente responsável pela tela inicial de autenticação.
- * Apresenta opções para criar conta ou fazer login.
- * 
- * @component
- * @example
- * return (
- *   <Login />
- * )
+ * Componente otimizado para diferentes tamanhos de tela,
+ * incluindo webview do Android Studio.
  */
 const Login = () => {
   const navigate = useNavigate();
+  
+  // Breakpoints personalizados para melhor responsividade
+  const isMobile = useMediaQuery({ maxWidth: 600 });
+  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 960 });
+  const isWebView = useMediaQuery({ maxWidth: 420 });
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] p-4">
-      <div className="flex flex-col items-center justify-center w-full max-w-[480px] h-full py-8 px-4 sm:px-6">
-        {/* Logo e Título */}
-        <div className="relative group cursor-pointer mb-6" aria-label="Logo Kenopsia">
-          <Code className="text-[#FF6347] text-4xl sm:text-5xl transform group-hover:rotate-180 transition-transform duration-500" />
-          <div className="absolute -inset-2 bg-[#FF6347] opacity-0 group-hover:opacity-20 rounded-full blur transition-opacity duration-500"></div>
-        </div>
-
-        <h1 className="text-white text-2xl sm:text-3xl font-bold tracking-wide mb-2 animate-fade-in relative">
-          KENOPSIA
-          <span className="absolute -inset-1 bg-[#FF6347] opacity-0 hover:opacity-20 rounded-lg blur transition-opacity duration-300"></span>
-        </h1>
-
-        <p className="text-white tracking-wider text-sm sm:text-base mb-8 animate-slide-in">
-          R E M E M B E R - T H E - P A S T
-        </p>
-
-        {/* Descrição */}
-        <div className="text-center mb-8 animate-fade-in-up">
-          <p className="text-white text-sm sm:text-base font-light">
-            Uma recriação e homenagem ao Omlet Arcade
-          </p>
-        </div>
-
-        {/* Botão Criar Conta */}
-        <button
-          onClick={() => navigate('/register')}
-          className="bg-gradient-to-r from-[#FF6347] to-[#FF8367] text-white px-6 py-3 rounded-lg text-sm sm:text-base font-medium hover:from-[#FF8367] hover:to-[#FF6347] transition-all duration-300 shadow-lg hover:shadow-xl w-full max-w-sm mb-4 active:transform active:scale-95"
-          aria-label="Criar nova conta"
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          minHeight: '100vh',
+          width: '100%',
+          background: 'linear-gradient(180deg, #1C1E26 0%, #2D2F3A 100%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: isWebView ? 2 : 4,
+        }}
+      >
+        <Container
+          maxWidth="sm"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            py: isWebView ? 4 : 6,
+            px: isWebView ? 2 : 3,
+          }}
         >
-          Criar conta
-        </button>
+          <Grid container spacing={3} direction="column" alignItems="center">
+            {/* Logo */}
+            <Grid item>
+              <Box
+                className="group"
+                sx={{
+                  position: 'relative',
+                  cursor: 'pointer',
+                  transition: 'transform 0.5s',
+                  '&:hover': {
+                    transform: 'rotate(180deg)',
+                  },
+                }}
+              >
+                <Code
+                  size={isMobile ? 48 : 64}
+                  className="text-[#FF6347]"
+                  aria-label="Logo Kenopsia"
+                />
+              </Box>
+            </Grid>
 
-        {/* Botão Fazer Login */}
-        <button
-          onClick={() => navigate('/login-form')}
-          className="bg-gray-600/80 text-white px-6 py-3 w-full max-w-sm hover:bg-gray-500/80 transition-colors duration-300 rounded-lg text-sm sm:text-base backdrop-blur-sm active:transform active:scale-95"
-          aria-label="Acessar formulário de login"
-        >
-          Fazer login
-        </button>
+            {/* Título */}
+            <Grid item>
+              <Typography
+                variant={isMobile ? 'h4' : 'h3'}
+                component="h1"
+                sx={{
+                  fontWeight: 'bold',
+                  letterSpacing: 4,
+                  textAlign: 'center',
+                  position: 'relative',
+                  '&:hover::after': {
+                    content: '""',
+                    position: 'absolute',
+                    inset: -4,
+                    background: '#FF6347',
+                    opacity: 0.2,
+                    borderRadius: 2,
+                    filter: 'blur(8px)',
+                  },
+                }}
+              >
+                KENOPSIA
+              </Typography>
+            </Grid>
 
-        {/* Rodapé */}
-        <p className="mt-8 text-xs sm:text-sm italic animate-fade-in text-gray-400 text-center">
-          Desenvolvido por Flutter
-        </p>
-      </div>
-    </div>
+            {/* Subtítulo */}
+            <Grid item>
+              <Typography
+                variant={isMobile ? 'subtitle2' : 'subtitle1'}
+                sx={{
+                  letterSpacing: 3,
+                  opacity: 0.9,
+                  textAlign: 'center',
+                }}
+              >
+                R E M E M B E R - T H E - P A S T
+              </Typography>
+            </Grid>
+
+            {/* Descrição */}
+            <Grid item>
+              <Typography
+                variant={isMobile ? 'body2' : 'body1'}
+                sx={{
+                  textAlign: 'center',
+                  opacity: 0.8,
+                  maxWidth: isWebView ? '280px' : '320px',
+                  margin: '0 auto',
+                }}
+              >
+                Uma recriação e homenagem ao Omlet Arcade
+              </Typography>
+            </Grid>
+
+            {/* Botões */}
+            <Grid item container direction="column" spacing={2} sx={{ width: '100%', mt: 2 }}>
+              <Grid item>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  size={isMobile ? 'medium' : 'large'}
+                  onClick={() => navigate('/register')}
+                  sx={{
+                    background: 'linear-gradient(45deg, #FF6347 30%, #FF8367 90%)',
+                    color: 'white',
+                    textTransform: 'none',
+                    fontSize: isMobile ? '0.875rem' : '1rem',
+                    py: isWebView ? 1.5 : 2,
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #FF8367 30%, #FF6347 90%)',
+                    },
+                  }}
+                >
+                  Criar conta
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  fullWidth
+                  variant="outlined"
+                  size={isMobile ? 'medium' : 'large'}
+                  onClick={() => navigate('/login-form')}
+                  sx={{
+                    borderColor: 'rgba(255,255,255,0.3)',
+                    color: 'white',
+                    textTransform: 'none',
+                    fontSize: isMobile ? '0.875rem' : '1rem',
+                    py: isWebView ? 1.5 : 2,
+                    backdropFilter: 'blur(4px)',
+                    '&:hover': {
+                      borderColor: 'rgba(255,255,255,0.5)',
+                      background: 'rgba(255,255,255,0.05)',
+                    },
+                  }}
+                >
+                  Fazer login
+                </Button>
+              </Grid>
+            </Grid>
+
+            {/* Rodapé */}
+            <Grid item sx={{ mt: isWebView ? 4 : 6 }}>
+              <Typography
+                variant="caption"
+                sx={{
+                  opacity: 0.6,
+                  fontStyle: 'italic',
+                }}
+              >
+                Desenvolvido por Flutter
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </ThemeProvider>
   );
 };
 

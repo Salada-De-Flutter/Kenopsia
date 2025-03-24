@@ -33,3 +33,23 @@
 .animate-fade-in-up {
   animation: slide-in 0.5s ease-in-out;
 }
+
+/* Otimizações para WebView */
+@media screen and (max-width: 420px) {
+  input, button {
+    font-size: 16px !important; /* Previne zoom automático em inputs no iOS */
+  }
+}
+
+/* Ajustes para tela sensível ao toque */
+@media (hover: none) {
+  .group:active {
+    transform: rotate(180deg);
+  }
+}
+
+/* Melhorias de performance */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
