@@ -15,7 +15,6 @@
     max-width: 768px;       /* largura máxima, simulando uma tela mobile mesmo em desktops */
     margin: 0 auto;         /* centraliza o container */
     padding: 8px;
-    box-sizing: border-box;
     min-height: 480px;      /* altura mínima, ajustável conforme necessário */
   }
   
