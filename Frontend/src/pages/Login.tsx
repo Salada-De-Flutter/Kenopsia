@@ -1,185 +1,63 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Code } from 'lucide-react';
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Grid,
-  ThemeProvider,
-} from '@mui/material';
-import GlobalStyles from './GlobalStyles';
-import theme from './theme';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+function Login() {
   const navigate = useNavigate();
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Box
-        sx={{
-          minHeight: '100vh',
-          width: '100%',
-          background: 'linear-gradient(180deg, #1C1E26 0%, #2D2F3A 100%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          p: { xs: 2, sm: 4 }, // p: padding
-        }}
-      >
-        <Container
-          maxWidth="sm"
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            py: { xs: 4, sm: 6 },
-            px: { xs: 2, sm: 3 },
-          }}
-        >
-          <Grid container spacing={3} direction="column" alignItems="center">
-            {/* Logo */}
-            <Grid item>
-              <Box
-                sx={{
-                  position: 'relative',
-                  cursor: 'pointer',
-                  transition: 'transform 0.5s',
-                  '&:hover': {
-                    transform: 'rotate(180deg)',
-                  },
-                }}
-              >
-                <Code
-                  size={48} // Você pode ajustar o tamanho relativo com base nos breakpoints usando sx se necessário
-                  aria-label="Logo Kenopsia"
-                  style={{ color: '#FF6347' }}
-                />
-              </Box>
-            </Grid>
+    <div className="min-h-screen w-full bg-gradient-to-b from-[#1C1E26] to-[#2D2F3A] flex flex-col items-center justify-center p-4 sm:p-8">
+      <div className="w-full max-w-sm flex flex-col items-center py-8 sm:py-12 px-4 sm:px-6">
+        <div className="flex flex-col items-center space-y-6">
+          {/* Logo */}
+          <div className="relative cursor-pointer transition-transform duration-500 hover:rotate-180">
+            <Code size={48} className="text-[#FF6347]" />
+          </div>
 
-            {/* Título */}
-            <Grid item>
-              <Typography
-                variant="h3"
-                component="h1"
-                sx={{
-                  fontWeight: 'bold',
-                  letterSpacing: 4,
-                  textAlign: 'center',
-                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-                  position: 'relative',
-                  '&:hover::after': {
-                    content: '""',
-                    position: 'absolute',
-                    inset: -4,
-                    background: '#FF6347',
-                    opacity: 0.2,
-                    borderRadius: 2,
-                    filter: 'blur(8px)',
-                  },
-                }}
-              >
-                KENOPSIA
-              </Typography>
-            </Grid>
+          {/* Title */}
+          <div className="relative group">
+            <h1 className="font-bold tracking-[0.2em] text-center text-2xl sm:text-3xl md:text-4xl">
+              KENOPSIA
+            </h1>
+            <div className="absolute inset-0 bg-[#FF6347] opacity-0 group-hover:opacity-20 -m-1 rounded blur-lg transition-opacity duration-300"></div>
+          </div>
 
-            {/* Subtítulo */}
-            <Grid item>
-              <Typography
-                variant="subtitle1"
-                sx={{
-                  letterSpacing: 3,
-                  opacity: 0.9,
-                  textAlign: 'center',
-                  fontSize: { xs: '0.8rem', sm: '1rem' },
-                }}
-              >
-                R E M E M B E R - T H E - P A S T
-              </Typography>
-            </Grid>
+          {/* Subtitle */}
+          <div className="tracking-[0.2em] opacity-90 text-center text-sm sm:text-base">
+            R E M E M B E R - T H E - P A S T
+          </div>
 
-            {/* Descrição */}
-            <Grid item>
-              <Typography
-                variant="body1"
-                sx={{
-                  textAlign: 'center',
-                  opacity: 0.8,
-                  maxWidth: { xs: '90%', sm: '320px' },
-                  margin: '0 auto',
-                }}
-              >
-                Uma recriação e homenagem ao Omlet Arcade
-              </Typography>
-            </Grid>
+          {/* Description */}
+          <div className="text-center opacity-80 max-w-[90%] sm:max-w-[320px] mx-auto">
+            Uma recriação e homenagem ao Omlet Arcade
+          </div>
 
-            {/* Botões */}
-            <Grid item container direction="column" spacing={2} sx={{ width: '100%', mt: 2 }}>
-              <Grid item>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  size="large"
-                  onClick={() => navigate('/register')}
-                  sx={{
-                    background: 'linear-gradient(45deg, #FF6347 30%, #FF8367 90%)',
-                    color: 'white',
-                    textTransform: 'none',
-                    fontSize: { xs: '0.875rem', sm: '1rem' },
-                    py: { xs: 1.5, sm: 2 },
-                    '&:hover': {
-                      background: 'linear-gradient(45deg, #FF8367 30%, #FF6347 90%)',
-                    },
-                  }}
-                >
-                  Criar conta
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button
-                  fullWidth
-                  variant="outlined"
-                  size="large"
-                  onClick={() => navigate('/login-form')}
-                  sx={{
-                    borderColor: 'rgba(255,255,255,0.3)',
-                    color: 'white',
-                    textTransform: 'none',
-                    fontSize: { xs: '0.875rem', sm: '1rem' },
-                    py: { xs: 1.5, sm: 2 },
-                    backdropFilter: 'blur(4px)',
-                    '&:hover': {
-                      borderColor: 'rgba(255,255,255,0.5)',
-                      background: 'rgba(255,255,255,0.05)',
-                    },
-                  }}
-                >
-                  Fazer login
-                </Button>
-              </Grid>
-            </Grid>
+          {/* Buttons */}
+          <div className="w-full space-y-4 mt-4">
+            <button 
+              onClick={() => navigate('/register')}
+              className="w-full py-3 sm:py-4 px-4 bg-gradient-to-r from-[#FF6347] to-[#FF8367] hover:from-[#FF8367] hover:to-[#FF6347] text-white rounded-md transition-all duration-300 text-sm sm:text-base"
+            >
+              Criar conta
+            </button>
+            <button 
+              onClick={() => navigate('/login-form')}
+              className="w-full py-3 sm:py-4 px-4 border border-white/30 hover:border-white/50 hover:bg-white/5 text-white rounded-md backdrop-blur-sm transition-all duration-300 text-sm sm:text-base"
+            >
+              Fazer login
+            </button>
+          </div>
 
-            {/* Rodapé */}
-            <Grid item sx={{ mt: { xs: 4, sm: 6 } }}>
-              <Typography
-                variant="caption"
-                sx={{
-                  opacity: 0.6,
-                  fontStyle: 'italic',
-                }}
-              >
-                Desenvolvido por Flutter
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    </ThemeProvider>
+          {/* Footer */}
+          <div className="mt-8 sm:mt-12">
+            <p className="opacity-60 italic text-sm">
+              Desenvolvido por Flutter
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export default Login;

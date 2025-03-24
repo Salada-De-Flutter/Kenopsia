@@ -2,33 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-.container {
-    width: 100%; /* ao invés de um valor fixo */
-    padding: 16px;
-  }
+/* index.css */
+/* Reset básico e box-sizing global */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* src/index.css */
+/* Definições globais de fonte e cores (opcional) */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  background-color: #1C1E26;
+  color: #FFFFFF;
+}
 
+/* Container responsivo global */
+.responsive-container {
+  width: 100%;
+  max-width: 768px;  /* Limite máximo para simular tela mobile */
+  margin: 0 auto;    /* Centraliza horizontalmente */
+  padding: 2rem;     /* Utilize unidades relativas (rem) para adaptar melhor */
+  min-height: 100vh; /* Garante que ocupe toda a altura da viewport */
+}
+
+/* Media queries para ajustes */
+@media (max-width: 768px) {
   .responsive-container {
-    width: 100%;
-    min-width: 320px;       /* largura mínima para não quebrar */
-    max-width: 768px;       /* largura máxima, simulando uma tela mobile mesmo em desktops */
-    height: 320vh;          /* 100% da altura da viewport */
-    margin: 0 auto;         /* centraliza o container */
-    padding: 8px;
-    box-sizing: border-box;
+    padding: 1.5rem;
   }
-  
-  /* Ajustes de padding para telas menores */
-  @media (max-width: 768px) {
-    .responsive-container {
-      padding: 8px;
-    }
+}
+
+@media (max-width: 480px) {
+  .responsive-container {
+    padding: 1rem;
   }
-  
-  @media (max-width: 480px) {
-    .responsive-container {
-      padding: 4px;
-    }
-  }
-  
+}
