@@ -13,9 +13,10 @@
     width: 100%;
     min-width: 320px;       /* largura mínima para não quebrar */
     max-width: 768px;       /* largura máxima, simulando uma tela mobile mesmo em desktops */
+    height: 100vh;          /* 100% da altura da viewport */
     margin: 0 auto;         /* centraliza o container */
     padding: 8px;
-    min-height: 480px;      /* altura mínima, ajustável conforme necessário */
+    box-sizing: border-box;
   }
   
   /* Ajustes de padding para telas menores */
