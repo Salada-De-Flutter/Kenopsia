@@ -8,7 +8,6 @@ import {
   Typography,
   Button,
   Grid,
-  useTheme,
   ThemeProvider,
   createTheme,
 } from '@mui/material';
@@ -48,7 +47,6 @@ const Login = () => {
   
   // Breakpoints personalizados para melhor responsividade
   const isMobile = useMediaQuery({ maxWidth: 600 });
-  const isTablet = useMediaQuery({ minWidth: 601, maxWidth: 960 });
   const isWebView = useMediaQuery({ maxWidth: 420 });
 
   return (
