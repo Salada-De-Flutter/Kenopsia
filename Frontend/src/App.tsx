@@ -6,13 +6,11 @@ import { AlertProvider } from './context/AlertContext';
 
 function App() {
   return (
-    <div className="container">
     <AlertProvider>
       <Layout>
         <Router />
       </Layout>
     </AlertProvider>
-    </div>
   );
 }
 
