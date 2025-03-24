@@ -11,11 +11,12 @@
 
   .responsive-container {
     width: 100%;
-    min-width: 320px; /* largura mínima para não quebrar */
-    max-width: 768px; /* largura máxima, simulando uma tela mobile mesmo em desktops */
-    margin: 0 auto; /* centraliza o container */
+    min-width: 320px;       /* largura mínima para não quebrar */
+    max-width: 768px;       /* largura máxima, simulando uma tela mobile mesmo em desktops */
+    margin: 0 auto;         /* centraliza o container */
     padding: 8px;
     box-sizing: border-box;
+    min-height: 480px;      /* altura mínima, ajustável conforme necessário */
   }
   
   /* Ajustes de padding para telas menores */
@@ -30,5 +31,4 @@
       padding: 4px;
     }
   }
-  
   
