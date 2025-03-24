@@ -2,13 +2,37 @@
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <title>Kenopsia</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+        background-color: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .responsive-container {
+        width: 100%;
+        max-width: 420px; /* Simula largura mobile no desktop */
+        height: 100vh; /* 100% da altura da tela */
+        padding: 16px;
+        background-color: #fff;
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
-    <div className="responsive-container">
-    <div id="root"></div>
+    <div class="responsive-container">
+      <div id="root"></div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
-  </div>
   </body>
 </html>
