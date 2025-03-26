@@ -1,55 +1,92 @@
 # Kenopsia
 
-## 📝 Sobre o Projeto
+Uma recriação e homenagem ao Omlet Arcade, desenvolvida com React, TypeScript e Tailwind CSS.
 
-Kenopsia é uma recriação e homenagem ao Omlet Arcade, desenvolvida com React, Vite e Tailwind CSS. O projeto apresenta uma interface moderna e responsiva com animações suaves e uma experiência de usuário intuitiva.
+## 🚀 Características
 
-## 🚀 Tecnologias Utilizadas
+- Design responsivo para mobile e desktop
+- Navegação intuitiva com React Router
+- Animações suaves com Framer Motion
+- Interface moderna e elegante
+- Suporte para upload de imagens
+- Sistema de autenticação
+- Dashboard interativo
 
-- React 18
-- Vite
+## 🛠️ Tecnologias
+
+- React
 - TypeScript
 - Tailwind CSS
 - React Router DOM
+- Framer Motion
 - Lucide React (ícones)
 
-## 🛠️ Pré-requisitos
+## 📱 Layout Responsivo
 
-- Node.js (versão 14 ou superior)
-- npm ou yarn
+- Mobile: Layout vertical otimizado
+- Desktop: Layout horizontal com sidebar fixa
+- Adaptação automática para diferentes tamanhos de tela
+- Sem scroll em todas as páginas
 
-## 📦 Instalação
+## 🔧 Instalação
 
-1. Clone o repositório
-2. Instale as dependências:
 ```bash
+# Clone o repositório
+git clone [url-do-repositório]
+
+# Entre no diretório
+cd kenopsia
+
+# Instale as dependências
 npm install
-```
 
-## 🔧 Desenvolvimento
-
-Para iniciar o servidor de desenvolvimento:
-```bash
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-## 📚 Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
-src/
-├── assets/        # Arquivos estáticos (imagens, fontes)
-├── components/    # Componentes reutilizáveis
-├── context/      # Contextos do React (AlertContext)
-├── pages/        # Páginas da aplicação
-├── router/       # Configuração de rotas
-├── App.css       # Estilos globais
-├── App.tsx       # Componente principal
-└── main.tsx      # Ponto de entrada
+kenopsia/
+├── src/
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   ├── Register.tsx
+│   │   └── Dashboard.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── public/
+├── package.json
+└── README.md
 ```
 
-## 🚀 Deploy
+## 🎨 Design
 
-O projeto está configurado para deploy na Vercel. O processo de deploy é automático quando conectado ao repositório.
+- Tema escuro moderno
+- Cores principais:
+  - Fundo: Gradiente de #1C1E26 para #2D2F3A
+  - Destaque: #FF6347 (Coral)
+  - Texto: Branco e tons de cinza
+
+## 🔐 Segurança
+
+- Validação de formulários
+- Proteção de rotas
+- Gerenciamento seguro de uploads de imagens
+
+## 📱 Responsividade
+
+- Mobile First
+- Breakpoints:
+  - sm: 640px
+  - md: 768px
+  - lg: 1024px
+  - xl: 1280px
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 ## 📄 Licença
 

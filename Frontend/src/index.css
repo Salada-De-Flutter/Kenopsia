@@ -2,44 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* index.css */
-/* Reset básico e box-sizing global */
-*,
-*::before,
-*::after {
+html, body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Definições globais de fonte e cores (opcional) */
-html {
-  font-size: 62.5%; /* 1rem = 10px */
-}
-body {
-  font-family: 'Inter', 'Roboto', sans-serif;
-  background-color: #1C1E26;
-  color: #FFFFFF;
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Container responsivo global */
-.responsive-container {
-  width: 100%;
-  max-width: 768px;  /* Limite máximo para simular tela mobile */
-  margin: 0 auto;    /* Centraliza horizontalmente */
-  padding: 2rem;     /* Utilize unidades relativas (rem) para adaptar melhor */
-  min-height: 100vh; /* Garante que ocupe toda a altura da viewport */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Media queries para ajustes */
-@media (max-width: 768px) {
-  .responsive-container {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .responsive-container {
-    padding: 1rem;
-  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -1,21 +1,17 @@
-import React from 'react';
-import { Router } from './router';
-import './App.css';
-import './index.css'; // Importa os estilos globais
-import { Layout } from './components';
-import { AlertProvider } from './context/AlertContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { Register } from './pages/Register';
+import { Dashboard } from './pages/Dashboard';
 
 function App() {
   return (
-    <AlertProvider>
-      {/* Supondo que o Layout é o container principal */}
-      <Layout>
-        {/* Envolva seu conteúdo com a classe responsiva definida em index.css */}
-        <div className="responsive-container">
-          <Router />
-        </div>
-      </Layout>
-    </AlertProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
